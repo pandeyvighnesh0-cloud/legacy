@@ -1,66 +1,511 @@
-<html>
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title> green leaf </title>
-    <style>
-        h1 {
-            font-size: xx-large;
-            text-align: center;
-            background-color: green;
-            color: blanchedalmond;
-            font-style: italic;
-            padding: auto;
-        }
-        div img
-        {
-            height: 200px;
-            width: 200px;
-        margin-bottom: 0;
-        }
-        div h3
-        {
-            text-align: center;
-        }
-        div
-        {height: 210px;
-        width: 210px;}
-        .con
-        {
-                        display:flex;
-                        align-items: center;
-            justify-content: space-around;
-            height: 100vh;
-            width: 100vw;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Leaf | Fresh & Delicious</title>
 
-        }
-    </style>
-    <meta name="description" content="restaurant website">
-    <meta name="keywords" content="best restaurant,best food with good services">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #fff;
+    color: #26352b;
+}
+
+header {
+    background: #103c27;
+    color: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    color: #b8e986;
+}
+
+.logo span {
+    color: white;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #b8e986;
+}
+
+.hero {
+    min-height: 600px;
+    background:
+    linear-gradient(rgba(0,30,15,.65),rgba(0,30,15,.65)),
+    url('https://images.unsplash.com/photo-1547592180-85f173990554?w=1600');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 80px 10%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-size: 65px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #b8e986;
+}
+
+.hero p {
+    font-size: 17px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    background: #8bc34a;
+    color: #123a26;
+    padding: 13px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 80px 9%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: #17472d;
+}
+
+.section-title p {
+    color: #777;
+    margin-top: 10px;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about img {
+    width: 48%;
+    border-radius: 20px;
+    height: 380px;
+    object-fit: cover;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    color: #17472d;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #666;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.menu {
+    background: #f5f8f1;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.food-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.07);
+    transition: .3s;
+}
+
+.food-card:hover {
+    transform: translateY(-8px);
+}
+
+.food-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.food-info {
+    padding: 22px;
+}
+
+.food-info h3 {
+    color: #17472d;
+    margin-bottom: 10px;
+}
+
+.food-info p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.price {
+    color: #5d982d;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.special {
+    background: #16452c;
+    color: white;
+    text-align: center;
+}
+
+.special h2 {
+    font-size: 38px;
+    color: #b8e986;
+    margin-bottom: 15px;
+}
+
+.special p {
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+}
+
+.contact {
+    background: #f5f8f1;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-info h3 {
+    color: #17472d;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #5d982d;
+}
+
+.contact-form textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+footer {
+    background: #103c27;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+footer span {
+    color: #b8e986;
+}
+
+@media(max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .about img {
+        width: 100%;
+    }
+
+    .menu-grid,
+    .gallery-grid,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <h1>
-        <marquee>welcome to green leaf</marquee>
-    </h1>
-    <div class="con">
+<!-- HEADER -->
+<header>
+    <div class="logo">🌿 GREEN <span>LEAF</span></div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Fresh Food.<br><span>Fresh Life.</span></h1>
+        <p>
+            Welcome to Green Leaf Restaurant!
+            Experience delicious food made with fresh ingredients,
+            love and passion. Every meal is a celebration of taste.
+        </p>
+        <a href="#menu" class="btn">Explore Our Menu</a>
+    </div>
+</section>
 
-    <div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjuxgfbzAzyTcMZoTzjt68WKsKdlgSvtRADJk3UdvQMA&s=10"
-            alt="non veg thali">
-            <h3>non-veg thali</h3>
+<!-- ABOUT SECTION -->
+<section id="about">
+    <div class="about">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900" alt="Restaurant dining">
+        <div class="about-text">
+            <h2>Welcome to Green Leaf</h2>
+            <p>
+                At Green Leaf, we believe that great food brings
+                people together. We serve delicious meals prepared
+                with fresh ingredients and authentic flavours.
+            </p>
+            <p>
+                Our mission is to provide a wonderful dining
+                experience with quality food, friendly service
+                and a beautiful atmosphere.
+            </p>
+            <a href="#contact" class="btn">Visit Us</a>
+        </div>
     </div>
-     <div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwTGNL3-wX-14fjmsf5o8X6ZVgh1LUY6805QJZOyC6QQ&s=10" alt="paneer kepsa">
-            <h3>-paneer kepsa</h3>
+</section>
+
+<!-- MENU SECTION -->
+<section class="menu" id="menu">
+    <div class="section-title">
+        <h2>Our Special Menu</h2>
+        <p>Fresh ingredients, amazing flavours!</p>
     </div>
-     <div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR04In_M4WE_qxutBSs2XZpjUqS5xKeJ2nsqcbULiatZQ&s=10" alt="chicken tandoori">
-            <h3>chicken tandoor</h3>
+
+    <div class="menu-grid">
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700" alt="Pizza">
+            <div class="food-info">
+                <h3>Italian Pizza</h3>
+                <p>Delicious cheesy pizza with fresh toppings.</p>
+                <div class="price">₹249</div>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=700" alt="Indian curry">
+            <div class="food-info">
+                <h3>Paneer Special</h3>
+                <p>Rich and creamy paneer with Indian spices.</p>
+                <div class="price">₹199</div>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=700" alt="Burger">
+            <div class="food-info">
+                <h3>Veg Burger</h3>
+                <p>Crispy veggie patty with fresh vegetables.</p>
+                <div class="price">₹149</div>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=700" alt="Fresh salad">
+            <div class="food-info">
+                <h3>Healthy Salad</h3>
+                <p>Fresh green vegetables and healthy dressing.</p>
+                <div class="price">₹129</div>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700" alt="Grilled food">
+            <div class="food-info">
+                <h3>Grilled Special</h3>
+                <p>Perfectly grilled food with delicious flavours.</p>
+                <div class="price">₹299</div>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=700" alt="Milkshake">
+            <div class="food-info">
+                <h3>Chocolate Shake</h3>
+                <p>Thick, creamy and refreshing chocolate shake.</p>
+                <div class="price">₹99</div>
+            </div>
+        </div>
+
     </div>
+</section>
+
+<!-- SPECIAL OFFER -->
+<section class="special">
+    <h2>Eat Fresh, Live Healthy!</h2>
+    <p>
+        Enjoy delicious food made with fresh ingredients.
+        Visit Green Leaf and make every meal memorable!
+    </p>
+    <a href="#contact" class="btn">Book Your Table</a>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+    <div class="section-title">
+        <h2>Our Food Gallery</h2>
+        <p>A glimpse of delicious moments at Green Leaf.</p>
     </div>
+
+    <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700" alt="Restaurant interior">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=700" alt="Fresh food">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700" alt="Restaurant table">
+        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=700" alt="Healthy food">
+        <img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?w=700" alt="Delicious meal">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700" alt="Food platter">
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>We would love to serve you!</p>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Green Leaf Restaurant 🌿</h3>
+            <p>📍 Address: Your Restaurant Address</p>
+            <p>📞 Phone: +91 98765 43210</p>
+            <p>✉ Email: greenleaf@example.com</p>
+            <p>🕒 Opening Hours: 10:00 AM - 11:00 PM</p>
+        </div>
+
+        <form class="contact-form"
+              onsubmit="sendMessage(event)">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="tel" placeholder="Phone Number">
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>🌿 GREEN LEAF</h2>
+    <p>Fresh Food | Happy Life | Beautiful Moments</p>
+    <p>© 2026 Green Leaf Restaurant. All Rights Reserved.</p>
+    <p>Made with ❤️ for food lovers.</p>
+</footer>
+
+<script>
+function sendMessage(event) {
+    event.preventDefault();
+    alert("Thank you for contacting Green Leaf! We will get back to you soon.");
+    event.target.reset();
+}
+</script>
+
 </body>
-
-
 </html>
